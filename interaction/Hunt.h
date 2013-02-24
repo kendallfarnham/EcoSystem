@@ -7,7 +7,7 @@
 
 #ifndef HUNT_H_
 #define HUNT_H_
-#include "PseudoEngs65AnimalTrial02.cpp"
+#include "Animal.h"
 #include "AnimalInteraction.h"
 
 class Hunt {
@@ -16,7 +16,7 @@ class Hunt {
 public:
 	Hunt();
 	Hunt(animal*);
-	animal* findTarget(animal*)
+	animal* findTarget(animal*);
 	virtual ~Hunt();
 };
 

@@ -6,11 +6,8 @@
  */
 
 #include "AnimalInteraction.h"
-
-AnimalInteraction::AnimalInteraction() {
-	animalDLL = new DoublyLinkedList<animal>;
-	length = 0;
-}
+#include "DoublyLinkedList.h"
+#include "DoublyLinkedList.cpp"
 
 AnimalInteraction::~AnimalInteraction() {}
 
@@ -54,11 +51,11 @@ animal* AnimalInteraction::findTarget(animal* a) {
 	animal* returnAnimal;
 	int index = animalDLL->search(a);
 	int min = 100000000;
-	int ax = a->myx;
-	int ay = a->myy;
+	int ax = a->getmyx();
+	int ay = a->getmyy();
 	for (int i=0; i<index; i++) {
-		int targetx = target->myx;
-		int targety = target->myy;
+		int targetx = target->getmyx();
+		int targety = target->getmyy();
 		int dist = findDistance(ax,ay,targetx,targety);
 		if (dist < min) {
 			min = dist;
@@ -67,9 +64,9 @@ animal* AnimalInteraction::findTarget(animal* a) {
 		bool trash = animalDLL->moveToNext();
 		target = animalDLL->getData();
 	}
-	for (int i=index+1; i<getLength; i++) {
-			int targetx = target->myx;
-			int targety = target->myy;
+	for (int i=index+1; i<getLength(); i++) {
+			int targetx = target->getmyx();
+			int targety = target->getmyy();
 			int dist = findDistance(ax,ay,targetx,targety);
 			if (dist < min) {
 				min = dist;
@@ -81,7 +78,7 @@ animal* AnimalInteraction::findTarget(animal* a) {
 	return returnAnimal;
 }
 
-int AnimalInteraction::findDistance(int x1, int y1, int, x2, int y2) {
+int AnimalInteraction::findDistance(int x1,int y1,int x2,int y2) {
 	return ((x2-x1)*(x2-x1) + (y2-y1)*(y2-y1));
 }
 

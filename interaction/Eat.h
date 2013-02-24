@@ -8,13 +8,14 @@
 #ifndef EAT_H_
 #define EAT_H_
 #define SCALE 4
-#include "PseudoEngs65AnimalTrial02.cpp"
+#include "Animal.h"
+#include "Plant.h"
 
 class Eat {
 public:
 	Eat();
-	Eat(animal*, animal*);
-	Eat(animal*, plant*);
+	void eatAnimal(animal*, animal*);
+	void eatPlant(animal*, plant*);
 	void eatGrass(animal*);
 	virtual ~Eat();
 };

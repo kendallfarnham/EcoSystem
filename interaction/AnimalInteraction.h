@@ -7,7 +7,7 @@
 
 #ifndef ANIMALINTERACTION_H_
 #define ANIMALINTERACTION_H_
-#include "PseudoEngs65AnimalTrial02.cpp"
+#include "Animal.h"
 #include "DoublyLinkedList.h"
 
 class AnimalInteraction {
@@ -15,11 +15,14 @@ class AnimalInteraction {
 	int length;
 
 public:
-	AnimalInteraction();
+	AnimalInteraction() {
+		animalDLL = new DoublyLinkedList<animal>;
+		length = 0;
+	}
 	DoublyLinkedList<animal>* getAnimalDLL();
 	int getLength();
 	void createAnimal();
-	void removeAnimal();
+	void removeAnimal(animal*);
 	animal* getFirstAnimal();
 	animal* getLastAnimal();
 	animal* findTarget(animal*);
